@@ -1,3 +1,5 @@
+// tables create - disciplinas
+
 import Database from '../database/database.js';
 
 async function create(disciplinas) {

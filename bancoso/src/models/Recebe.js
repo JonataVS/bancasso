@@ -1,3 +1,5 @@
+//tables create recebe
+
 import Database from '../database/database.js';
 
 async function create(recebe) {

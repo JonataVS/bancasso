@@ -1,3 +1,5 @@
+//tables create usuario
+
 import Database from '../database/database.js';
 
 async function create(usuario) {
