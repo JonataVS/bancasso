@@ -1,4 +1,4 @@
-//tables create usuario
+// insert info
 
 import Database from '../database/database.js';
 

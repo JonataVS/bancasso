@@ -1,4 +1,4 @@
-// tables create - disciplinas
+// insert info
 
 import Database from '../database/database.js';
 

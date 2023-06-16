@@ -1,4 +1,4 @@
-//tables create recebe
+// insert info
 
 import Database from '../database/database.js';
 
