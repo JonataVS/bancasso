@@ -44,4 +44,29 @@ router.put('/usuario/:id', async (req, res) => {
     }
 });
 
-//as rotas ainda não foram finalizadas, continue...
+router.delete('/usuario/:id', async (req, res) => {
+    const id = req.params.id;
+
+    if (id && (await Usuario.remove(id))) {
+        res.sendStatus(204);
+    } else {
+        throw new HTTPError('Id is required to remove usuario',400);
+    }
+});
+
+// 404 handler
+router.use((req, res, next) => {
+    res.status(404).json({message: 'Content not found!'});
+});
+
+// Error hundler
+router.use((err, req, res, next) => {
+    //console.error(err.stack);
+    if (err instanceof HTTPError) {
+        res.status(err.code).json({ message: err.message });
+    } else {
+        res.status(500).json({ message:'Something broke!' });
+    }
+});
+
+export default router;
