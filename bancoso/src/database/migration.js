@@ -1,3 +1,5 @@
+// create tables
+
 import Database from './database.js';
 
 async function up() {

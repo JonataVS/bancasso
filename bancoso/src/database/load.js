@@ -7,3 +7,5 @@ async function load() {
 }
 
 load();
+
+// await from Migrations

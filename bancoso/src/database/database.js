@@ -8,3 +8,5 @@ async function connect() {
 }
 
 export default { connect };
+
+// Database connect 

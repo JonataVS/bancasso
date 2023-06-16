@@ -1,3 +1,5 @@
+// transporte de dados
+
 import { dados } from './dados.js';
 import Usuario from '../models/Usuario.js';
 import Recebe from  '../models/Recebe.js';
