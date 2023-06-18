@@ -23,6 +23,7 @@ router.post('/usuario', async (req, res) => {
         throw new HTTPError('Invalid data to create usuario, 400 ')
    }
 });
+    
 
 router.get('/usuario', async (req, res) => {
     const usuario = await Usuario.readAll();
