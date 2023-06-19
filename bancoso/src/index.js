@@ -3,13 +3,14 @@
 import 'express-async-errors';
 import express from 'express';
 import morgan from 'morgan';
-import router from './router.js';
+import router from './routes.js';
 
 const server = express ();
 
 server.use(morgan('tiny'));
 
 server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
 
 server.use(express.static('public'));
 

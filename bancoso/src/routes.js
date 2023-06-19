@@ -15,13 +15,15 @@ const router = Router();
 router.post('/usuario', async (req, res) => {
     const usuario = req.body;
 
+    console.log(usuario)
+
     const newUsuario = await Usuario.create(usuario);
 
     if (newUsuario) {
         res.json(newUsuario);
     } else {
         throw new HTTPError('Invalid data to create usuario, 400 ')
-   }
+   } 
 });
     
 
@@ -34,7 +36,7 @@ router.get('/usuario', async (req, res) => {
 router.put('/usuario/:id', async (req, res) => {
     const id = Number(req.params.id);
 
-    const = usuario = req.body;
+    const usuario = req.body;
 
     if (id && usuario) {
         const newUsuario = await Usuario.update(usuario, id);

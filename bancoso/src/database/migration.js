@@ -7,11 +7,13 @@ async function up() {
 
    const usuarioSql = `
      CREATE TABLE usuario (
-        id_usuario INTEGER PRIMARY KEY,
+        id_usuario INTEGER PRIMARY KEY AUTOINCREMENT,
         name VARCHAR (20) NOT NULL, 
         email VARCHAR (40) NOT NULL,
         senha VARCHAR (10) NOT NULL,
-        sexo INTEGER
+        sexo INTEGER,
+        tipo INTEGER 
+
      )
      `;
 

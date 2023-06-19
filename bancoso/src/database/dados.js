@@ -4,10 +4,11 @@ export const dados =  {
     "usuarios": [
         {
             "id_usuario": "20",
-            "name": "vini jr",
+            "nome": "vini jr",
             "email": "vinijr20@gmail.com",
             "senha": "vini20",
-            "sexo": "masculino"
+            "sexo": "masculino",
+            "tipo": "admin"
         }
     ],
    

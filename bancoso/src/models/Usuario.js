@@ -5,16 +5,16 @@ import Database from '../database/database.js';
 async function create(usuario) {
     const db = await Database.connect();
 
-    const {id_usuario, name, email, senha, sexo} = usuario;
+    const {nome, email, senha, sexo, tipo} = usuario;
 
     const sql = `
      INSERT INTO
-       usuario (id_usuario, name, email, senha, sexo)
+       usuario (name, email, senha, sexo, tipo)
      VALUES
         (?, ?, ?, ?, ?)
-    `;
+    ;`;
 
-    const { lastID } = await db.run(sql, [id_usuario, name, email, senha, sexo]);
+    const { lastID } = await db.run(sql, [nome, email, senha, sexo, tipo]);
 
     return read(lastID);
 }
