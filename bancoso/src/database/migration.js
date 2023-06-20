@@ -18,32 +18,6 @@ async function up() {
 
    await db.run(usuarioSql);
 
-   const administradorSql = `
-   CREATE TABLE administrador (
-      id_usuario INTEGER PRIMARY KEY REFERENCES usuario (id_usuario),
-      name VARCHAR (20) NOT NULL, 
-      email VARCHAR (40) NOT NULL,
-      senha VARCHAR (10) NOT NULL,
-      sexo INTEGER,
-      tipo INTEGER
-   )
-   `;
-
-   await db.run(administradorSql);
-
-   const alunosSql = `
-   CREATE TABLE aluno (
-      id_usuario INTEGER PRIMARY KEY REFERENCES usuario (id_usuario),
-      name VARCHAR (20) NOT NULL, 
-      email VARCHAR (40) NOT NULL,
-      senha VARCHAR (10) NOT NULL,
-      sexo INTEGER,
-      tipo INTEGER
-   )
-   `;
-
-   await db.run(alunoSql);
-
    const disciplinaSql = `
      CREATE TABLE disciplinas (
         id_disciplina INTEGER PRIMARY KEY,
