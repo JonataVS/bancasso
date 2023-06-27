@@ -1,0 +1,310 @@
+
+* {
+	
+	box-sizing: border-box;
+}
+html {
+	font-size: 62.5%;
+    margin: 0;
+	padding: 0;
+}
+body {
+	font-family: 'Poppins', sans-serif;
+	font-size: 1.4rem;
+	margin: 0;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+/* End general styles */
+.primary-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	width: 100%;
+	transition: background-color 0.5s;
+	border-bottom: 2px solid 
+		rgba(255, 255, 255, 0.05);
+}
+.navbar .container-xl{
+	height: 7.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	transition: height 0.25s;
+    color: white;
+}
+.logo {
+	font-size: 2.4rem;
+	font-weight: 900;
+}
+.nav-list {
+	list-style: none;
+	display: flex;
+	gap: 2.5rem;
+	margin-left: 5rem;
+	margin-right: auto;
+}
+.nav-link {
+	transition: color 0.25s;
+	
+}
+.nav-link:hover {
+	color: #d3d3d3;
+}
+
+.button {
+	display: inline-block;
+	background-color: #fff;
+	color: #313131;
+	padding: 0.8rem 2rem;
+	border-radius: 2rem;
+	transition: background-color 0.25s;
+}
+.button:hover {
+	background-color: #d3d3d3;
+}
+
+header.active {
+	background-color: #fff;
+	box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+}
+header.active .navbar {
+	height: 6rem;
+}
+header.active .logo,
+header.active .nav-link {
+	color: #313131;
+}
+header.active .nav-link:hover {
+	color: #808080;
+}
+header.active .button {
+	background-color: black;
+	color: #fff;
+}
+header.active .button:hover {
+	background-color: #151515;
+}
+
+/* Hero Demo Content*/
+.hero {
+	width: 100%;
+	height: 100vh;
+	background: url('../img/sistemasFT.jpg') center no-repeat;
+	background-size: cover;
+	position: relative;
+	padding: 10px auto;
+}
+
+.hero::after {
+	content: '';
+	width: inherit;
+	height: inherit;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(1, 2, 1, 0.5);
+}
+
+.container {
+    margin: 0 10%;
+    width: 80%;
+  }
+.container-xl {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+/*ondinha*/
+.link {
+
+    cursor: pointer;
+    font-size: 18px;
+    position: absolute;
+    text-decoration: none;
+    white-space: nowrap;
+    /*texto cor*/
+    color: #000000;
+  }
+  
+  .link::before,
+  .link::after {
+    
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: transparent;
+    top: 100%;
+    left: 0;
+    pointer-events: none;
+  
+  }
+  
+  .link::before { content: ''; }
+  
+  .onda {
+  
+  
+    overflow: hidden;
+    padding: 7px 0;
+  
+  }
+  
+  .link_grafico {
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    fill: none;
+    /*linha antes*/
+    stroke: #000000;
+    stroke-width: 1px;
+  
+  }
+  
+  .link_grafico_slide {
+  
+    top: -3px;
+    stroke-width: 2px;
+    transition: transform 0.7s;
+    transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+  
+  }
+  
+  .link:hover .link_grafico_slide {
+    /*linha depois*/
+    stroke: #42f7ee;
+    transform: translate3d(-66.6%, 0, 0);
+  
+  }
+
+/* typhografi*/
+.title span {
+	--total: calc(var(--duration) + var(--delay));
+	position: relative;
+	display: block;
+
+	font-size: 25px;
+	overflow: hidden;
+	animation: reveal 1s var(--total) forwards;
+}
+.title span::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transform: scaleX(0);
+	transform-origin: left;
+	background-color: #0561ee;
+	animation: rollIn var(--duration) var(--delay) forwards,
+		rollOut var(--duration) var(--total) forwards;
+}
+.title span:nth-child(2)::after {
+	border-top: 3px solid #004ab8;
+}
+@keyframes reveal {
+	to {
+		color: #000000;
+	}
+}
+@keyframes rollIn {
+	from {
+		transform: scaleX(0);
+	}
+	to {
+		transform: scaleX(1);
+	}
+}
+@keyframes rollOut {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(105%);
+	}
+}
+
+
+.paragraph span {
+	display: block;
+	opacity: 0;
+	animation: reveal 0.5s forwards var(--d);
+}
+@keyframes reveal {
+	from {
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+.page {
+    padding-top: 20px;
+    background: #ffffff;
+    line-height: 1.6;
+    font-size: 17px;
+  }
+
+  .title {
+	margin-bottom: 50px;
+}
+.title span {
+	display: block;
+}
+/* typhografi*/
+.title span {
+	--total: calc(var(--duration) + var(--delay));
+	position: relative;
+	display: block;
+	color: transparent;
+	font-size: 25px;
+	overflow: hidden;
+	animation: reveal 1s var(--total) forwards;
+}
+.title span::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transform: scaleX(0);
+	transform-origin: left;
+	background-color: #0561ee;
+	animation: rollIn var(--duration) var(--delay) forwards,
+		rollOut var(--duration) var(--total) forwards;
+}
+.title span:nth-child(2)::after {
+	border-top: 3px solid #004ab8;
+}
+@keyframes reveal {
+	to {
+		color: #000000;
+	}
+}
+@keyframes rollIn {
+	from {
+		transform: scaleX(0);
+	}
+	to {
+		transform: scaleX(1);
+	}
+}
+@keyframes rollOut {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(105%);
+	}
+}
+p {
+    color: rgb(0 0 0 / 60%);
+}

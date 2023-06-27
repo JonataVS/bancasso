@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/jpg" href="img/icon.png">
+    <link rel="stylesheet" type="text/css" href="master/form.css" media="screen" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário | SST</title>
+</head>
+<body>
+    <form action="/usuario" method="POST"
+        <div class="box">
+                <legend><b>Faça seu cadastro</b></legend>
+                <br><br>
+                <div class="inputBox">
+                    <input type="text" name="nome" id="nome" class="inputUser" required>
+                    <label for="nome" class="labelInput">Nome</label>
+                </div>
+                <br><br>
+                <div class="inputBox">
+                    <input type="text" name="email" id="email" class="inputUser" required>
+                    <label for="email" class="labelInput">Email</label>
+                </div>
+                <br><br>
+                <div class="inputBox">
+                    <input type="password" name="senha" id="senha" class="inputUser" required>
+                    <label for="matricula" class="labelInput">Senha</label>
+                </div>
+                <p>Sexo:</p>
+                <input type="radio" id="feminino" name="sexo" value="feminino" required>
+                <label for="feminino">Feminino</label>
+                <br>
+                <input type="radio" id="masculino" name="sexo" value="masculino" required>
+                <label for="masculino">Masculino</label>
+                <br>
+                <input type="radio" id="outro" name="sexo" value="outro" required>
+                <label for="outro">Outro</label>
+                <br>
+                <p>Tipo:</p>
+                <input type="radio" id="aluno" name="tipo" value="aluno" required>
+                <label for="aluno">Aluno</label>
+                <br>
+                <input type="radio" id="admin" name="tipo" value="admin" required>
+                <label for="admin">Administrador</label>
+                <br>
+                <br>
+                <input type="submit" id="submit" href="/init.html">
+                <br>
+        </div>
+    </form>
+</body>
+</html>

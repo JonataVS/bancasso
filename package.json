@@ -1,0 +1,23 @@
+{
+  "name": "invest-app",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "db:reload": "npm run db:drop && npm run db:load",
+    "db:load": "node src/database/load.js",
+    "db:drop": "del src/database/db.sqlite"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.16.1",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.22",
+    "prisma": "^4.16.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.43.0",
+    "eslint-config-google": "^0.14.0"
+  }
+}
