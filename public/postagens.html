@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova postagem</title>
+</head>
+<body>
+    <div class="formulario">
+        <form action="/newpost" method="POST">
+            
+        <label for="titulo">Título da Postagem</label><br>
+
+        <input type="text" name="titulo" maxlength="500" required><br>
+
+        <label for="conteudo">Conteúdo:</label><br>
+
+        <textarea name="conteudo" required></textarea><br>
+
+        <input type="submit" value="publicar" href="/getpost">
+        </form>
+    </div>
+</body>
+</html>

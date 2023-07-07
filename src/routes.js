@@ -4,6 +4,7 @@ import { Router } from 'express';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import Usuario from './models/Usuario.js';
+import Postagem from './models/Postagem.js';
 // import Recebe from './models/Recebe.js';
 // import Disciplinas from './models/Disciplinas.js';
 
@@ -36,8 +37,13 @@ router.get('/form', function (req, res) {
 
 router.get('/init', function (req, res) {
     res.sendFile(path.join(__dirname, '../public/init.html'))
-})
+});
 
+//router from login
+
+router.get('/login', function (req, res) {
+    res.sendFile(path.join(__dirname, '../public/login.html'))
+});
 
 //router from fundamentos da computação
 
@@ -69,9 +75,75 @@ router.get('/sistemas', function (req, res) {
     res.sendFile(path.join(__dirname, '../public/sistemas.html'))
 })
 
+//router from novas postagens 
+
+router.get('/novapost', function (req, res) {
+    res.sendFile(path.join(__dirname, '../public/postagens.html'))
+})
+
+
+//router from posts
+
+router.get('/getpost', function (req, res) {
+    res.sendFile(path.join(__dirname, '../public/posts.html'))
+})
+
+
+//router from postagem infos
+
+router.post('/newpost', async (req, res) => {
+    const postagem = req.body
+    console.log(postagem)
+
+    const newPostagem = await Postagem.create(postagem);
+
+    if (newPostagem) {
+        res.sendFile(path.join(__dirname, '../public/posts.html'))
+    } else {
+        throw new HTTPError('Invalid data to create postagem, 400')
+    }
+});
+
+//router view postagens
+
+router.get('/posts', async (req, res) => {
+    const postagens = await Postagem.readAll();
+
+    res.json(postagens)
+});
+
+//router update postagens
+
+router.put('/posts/:Cod_Post', async (req, res) => {
+    const Cod_Post = Number(req.params.id);
+    const postagem = req.body
+
+    if (Cod_Post && postagem) {
+        const newPostagem = await update.Postagem(postagem, Cod_Post);
+
+        res.json(newPostagem);
+    } else {
+        throw new HTTPError('Invalid data to update usuario, 400');
+    }
+});
+
+//router from delete postagens
+
+router.delete('/posts/:Cod_Post', async (req, res) => {
+    const Cod_Post = req.params.Cod_Post
+
+    if(Cod_Post && await Postagem.remove((Cod_Post))){
+        res.sendStatus(204);
+    } else {
+        throw new HTTPError('Cod_Post is required to remove Postagem', 400);
+    }
+});
+
 // router from usuario infos
 
 router.post('/usuario', async (req, res) => {
+
+    
     const usuario = req.body;
 
     console.log(usuario)
@@ -81,9 +153,11 @@ router.post('/usuario', async (req, res) => {
     if (newUsuario) {
         res.sendFile(path.join(__dirname, '../public/init.html'));
     } else {
-        throw new HTTPError('Invalid data to create usuario, 400 ')
+        throw new HTTPError('Invalid data to create usuario', 400);
    } 
 });
+
+//router view usuarios
 
 router.get('/usuario', async (req, res) => {
     const usuario = await Usuario.readAll();
@@ -91,9 +165,10 @@ router.get('/usuario', async (req, res) => {
     res.json(usuario);
 });
 
+//router update usuario
+
 router.put('/usuario/:id', async (req, res) => {
     const id = Number(req.params.id);
-
     const usuario = req.body;
 
     if (id && usuario) {
@@ -101,9 +176,11 @@ router.put('/usuario/:id', async (req, res) => {
 
         res.json(newUsuario);
     } else {
-      throw new HTTPError('Invalid data to update usuario, 400');
+      throw new HTTPError('Invalid data to update usuario', 400);
     }
 });
+
+//router from delete usuario
 
 router.delete('/usuario/:id', async (req, res) => {
     const id = req.params.id;
@@ -122,7 +199,7 @@ router.use((req, res, next) => {
 
 // Error hundler
 router.use((err, req, res, next) => {
-    //console.error(err.stack);
+    console.error(err);
     if (err instanceof HTTPError) {
         res.status(err.code).json({ message: err.message });
     } else {

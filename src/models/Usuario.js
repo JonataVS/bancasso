@@ -21,7 +21,7 @@ async function read(id) {
     },
   });
 
-  return usuario; 
+  return usuario
 };
 
 //
@@ -34,7 +34,7 @@ async function update(usuario, id) {
     data: usuario
   });
 
-  return updateUsuario;
+  return updateUsuario
 };
 
 //
@@ -50,6 +50,18 @@ async function remove(id) {
 
 };
 
+async function readAll() {
+  const readAllUsuario = await prisma.usuario.findMany({
+    select: { 
+      nome: true,
+      email: true 
+    }
+  });
+
+  return readAllUsuario
+};
+
+
 //
 
 export default {
@@ -57,4 +69,5 @@ export default {
   read,
   update,
   remove,
+  readAll
 };

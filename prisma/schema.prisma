@@ -14,9 +14,15 @@ datasource db {
 
 model Usuario {
   id Int @id @default(autoincrement())
-  nome String  
+  nome String 
   email String @unique
   senha String
   sexo String
   tipo String
+}
+
+model Postagem {
+  Cod_Post Int @id @default(autoincrement())
+  titulo String
+  conteudo String
 }
