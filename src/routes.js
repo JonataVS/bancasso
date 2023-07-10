@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 import Usuario from './models/Usuario.js';
 import Postagem from './models/Postagem.js';
+import postController from '../controllers/postController.js';
 // import Recebe from './models/Recebe.js';
 // import Disciplinas from './models/Disciplinas.js';
 
@@ -77,17 +78,21 @@ router.get('/sistemas', function (req, res) {
 
 //router from novas postagens 
 
-router.get('/novapost', function (req, res) {
+router.get('/postar', function (req, res) {
     res.sendFile(path.join(__dirname, '../public/postagens.html'))
 })
 
-
 //router from posts
 
-router.get('/getpost', function (req, res) {
+router.get('/viewpost', function (req, res) {
     res.sendFile(path.join(__dirname, '../public/posts.html'))
 })
 
+//router.get('/novapost',  postController.postCreateGet)
+
+//router.post('/novapost', postController.postCreatePost)
+
+//router.get('/posts', postController.postsDataGet)
 
 //router from postagem infos
 
@@ -106,7 +111,7 @@ router.post('/newpost', async (req, res) => {
 
 //router view postagens
 
-router.get('/posts', async (req, res) => {
+router.get('/posts', async (req, res, next) => {
     const postagens = await Postagem.readAll();
 
     res.json(postagens)
