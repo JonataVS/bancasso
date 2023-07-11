@@ -11,12 +11,9 @@ function genPostagem (postagem) {
 }
 
 async function showPostagens () {
-    const postagens = await fetch('/posts',{method:'GET'})
-    try {
-        postagens
-    } catch(e) {
-        next(e)
-    }
+    const postagens = await fetch('/posts').then(res => res.json())
 
     console.log(postagens)
 }
+
+showPostagens()

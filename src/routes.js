@@ -112,9 +112,13 @@ router.post('/newpost', async (req, res) => {
 //router view postagens
 
 router.get('/posts', async (req, res, next) => {
-    const postagens = await Postagem.readAll();
-
-    res.json(postagens)
+    try {
+        const postagens = await Postagem.readAll();
+        console.log(postagens)
+        res.json(postagens)
+    } catch(e) {
+        next(e)
+    }
 });
 
 //router update postagens
