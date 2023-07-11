@@ -1,14 +1,4 @@
-function genPostagem (postagem) {
-    const html = `
-    <div>
-    <h1>${postagem.titulo}</h1>
-    <p>${postagem.conteudo}</p>
-    </div>`
-
-    console.log(postagem)
-
-    return html
-}
+//olha os codigos de arthur pra fazer a postagem aparecer, dessa vez vai dar certo, vambora vambora
 
 async function showPostagens () {
     const postagens = await fetch('/posts').then(res => res.json())
