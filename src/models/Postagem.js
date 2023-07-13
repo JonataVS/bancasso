@@ -37,6 +37,26 @@ async function update(postagem, Cod_Post) {
 
 //
 
+async function upsert(Postagem) {
+  const upsertPostagem = await prisma.postagem.upsert({
+    where: {
+      Cod_Post: Postagem.Cod_Post,
+    },
+    update: {
+      titulo: Postagem.titulo,
+      conteudo: Postagem.conteudo,
+    },
+    create: {
+      titulo: Postagem.titulo,
+      conteudo: Postagem.conteudo
+    },
+  })
+
+  return upsertPostagem
+}
+
+//
+
 async function remove(Cod_Post) {
   const removePostagem = await prisma.postagem.remove({
     where: {
@@ -64,6 +84,7 @@ export default {
   create,
   read,
   update,
+  upsert,
   remove,
   readAll
 };

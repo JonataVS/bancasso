@@ -1,7 +1,11 @@
 function genPostagem (postagem) {
     const html = `
+    <div class="postagem" id="Cod_Post-${postagem.Cod_Post}">
+    <button class="postagem" value="${postagem.Cod_Post}"><a href="/atualizar">Editar</a></button>
     <h1>${postagem.titulo}</h1>
-    <p>${postagem.conteudo}</p>`
+    <p>${postagem.conteudo}</p>
+    </div>
+    `
 
     return html
 }

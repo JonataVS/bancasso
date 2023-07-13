@@ -86,6 +86,33 @@ router.get('/viewpost', function (req, res) {
     res.sendFile(path.join(__dirname, '../public/posts.html'))
 })
 
+
+//router from update page
+
+router.get('/atualizar', function (req, res) {
+    res.sendFile(path.join(__dirname, '../public/update.html'))
+})
+
+
+//router from upsert posts
+
+router.put('/posts/:id', async (req, res) => {
+
+    const id = Number(req.params.id)
+
+    const postagem = req.body
+
+    postagem.Cod_Post = id
+
+    if(id && postagem) {
+        const updatePost = await Postagem.upsert(Postagem);
+
+        res.json(updatePost);
+    } else {
+        throw new HTTPError('Invalid update post', 400);
+    }
+});
+
 //router from postagem infos
 
 router.post('/newpost', async (req, res) => {
