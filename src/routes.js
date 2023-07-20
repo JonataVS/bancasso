@@ -105,7 +105,7 @@ router.put('/posts/:id', async (req, res) => {
     postagem.Cod_Post = id
 
     if(id && postagem) {
-        const updatePost = await Postagem.upsert(Postagem);
+        const updatePost = await Postagem.upsert(postagem);
 
         res.json(updatePost);
     } else {
@@ -137,21 +137,6 @@ router.get('/posts', async (req, res, next) => {
         res.json(postagens)
     } catch(e) {
         next(e)
-    }
-});
-
-//router update postagens
-
-router.put('/posts/:Cod_Post', async (req, res) => {
-    const Cod_Post = Number(req.params.id);
-    const postagem = req.body
-
-    if (Cod_Post && postagem) {
-        const newPostagem = await update.Postagem(postagem, Cod_Post);
-
-        res.json(newPostagem);
-    } else {
-        throw new HTTPError('Invalid data to update usuario, 400');
     }
 });
 

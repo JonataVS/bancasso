@@ -1,7 +1,7 @@
 @host = http://localhost:3000
 
 ### Update post
-PUT {{host}}/posts/2
+PUT {{host}}/posts/3
 Content-Type: application/json
 
 {
