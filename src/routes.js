@@ -94,7 +94,7 @@ router.get('/atualizar', function (req, res) {
 })
 
 
-//router from upsert posts
+//router from update posts
 
 router.put('/posts/:id', async (req, res) => {
 
@@ -130,7 +130,7 @@ router.post('/newpost', async (req, res) => {
 
 //router view postagens
 
-router.get('/posts', async (req, res, next) => {
+router.get('/getposts', async (req, res, next) => {
     try {
         const postagens = await Postagem.readAll();
         console.log(postagens)

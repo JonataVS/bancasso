@@ -1,34 +1,26 @@
-/*function updatePost (postagem) {
-    const html =`
-    <div class="formulario">
-        <form action="/posts/${postagem.Cod_Post}">
-            
-        <label for="titulo">Título da Postagem</label><br>
-
-        <input type="text" name="titulo" maxlength="500" required><br>
-
-        <label for="conteudo">Conteúdo:</label><br>
-
-        <textarea name="conteudo" required></textarea><br>
-
-        <input type="submit" value="update" href="/viewpost">
-        </form>
+function yourPostagem (postagem) {
+    const html = `
+    <p>Esta é a postagem que você selecionou para editar</p>
+    <div class="postagem" id="Cod_Post-${postagem.Cod_Post}">
+    <h1>${postagem.titulo}</h1>
+    <p>${postagem.conteudo}</p>
     </div>`
 
     return html
 }
 
-function updatePost (postagem) {
-    const post = document.querySelector('.update-post')
-    const postagemUpdate = updatePost(postagem)
+function insertPost (postagem) {
+    const post = document.querySelector('.your-post')
+    const postagemView = yourPostagem(postagem)
 
-    post.insertAdjacentHTML('beforeend', postagemUpdate)
+    post.insertAdjacentElement('beforeend', postagemView)
 }
 
-async function showUpdates () {
-    const Updatepostagens = await fetch('/posts').then(res => res.json())
+async function showPostagem () {
+    const postagem = await fetch('/getposts').then(res => res.json())
 
-    console.log(Updatepostagens)
+    console.log(postagem)
 }
 
-showUpdates ()*/
+showPostagem ()
+

@@ -3,11 +3,31 @@ function genPostagem (postagem) {
     <div class="postagem" id="Cod_Post-${postagem.Cod_Post}">
     <h1>${postagem.titulo}</h1>
     <p>${postagem.conteudo}</p>
-    <button class="postagem" value="${postagem.Cod_Post}"><a href="/atualizar">Editar</a></button>
-    </div>
+    </div><br>
+    <div class="formulario" id="Cod_Post-${postagem.Cod_Post}">
+    <form action="/posts">
+    <label for="titulo">Título da Postagem</label><br>
+    <input type="text" name="titulo" maxlength="500" required><br>
+    <label for="conteudo">Conteúdo:</label><br>
+    <textarea name="conteudo" required></textarea><br>
+    <button class="edit">Vai</button>
+    </form>
+</div>
     `
 
     return html
+}
+
+function updatePost (postagem) {
+    const updatePubli = document.querySelector(`#Cod_Post-${postagem.Cod_Post}`);
+
+    updatePubli.querySelector('.vai').onclicl = () => {
+        fetch(`/posts/${postagem.Cod_Post}`, {
+            method: 'post',
+        });
+
+        updatePubli.update();
+    };
 }
 
 function insertPost (postagem) {
@@ -18,7 +38,7 @@ function insertPost (postagem) {
 }
 
 async function showPostagens () {
-    const postagens = await fetch('/posts').then(res => res.json())
+    const postagens = await fetch('/getposts').then(res => res.json())
 
     console.log(postagens)
 
@@ -28,3 +48,30 @@ async function showPostagens () {
 }
 
 showPostagens ()
+
+/*function updatePost (postagem) {
+    const updateButton = document.querySelector(`Cod_Post-${postagem.Cod_Post}`);
+    
+    updateButton.querySelector('.edit').onclick = () => {
+        const updateHtml = `
+        <div class="formulario">
+        <form action="/posts/${postagem.Cod_Post}">
+        <label for="titulo">Título da Postagem</label><br>
+        <input type="text" name="titulo" maxlength="500" required><br>
+        <label for="conteudo">Conteúdo:</label><br>
+        <textarea name="conteudo" required></textarea><br>
+        <input type="submit" value="Publicar" href="/viewpost">
+        </form>
+    </div>`
+
+    return updateHtml
+    }
+
+}
+
+function insertUpdate (postagem) {
+    const update = document.querySelector('.update-post')
+    const updateView = updatePost(postagem)
+
+    update.insertAdjacentHTML('beforeend', updateView)
+}*/

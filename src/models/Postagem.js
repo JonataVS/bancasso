@@ -57,10 +57,10 @@ async function upsert(Postagem) {
 
 //
 
-async function remove(Cod_Post) {
-  const removePostagem = await prisma.postagem.remove({
+async function remove(postagem) {
+  const removePostagem = await prisma.postagem.delete({
     where: {
-      Cod_Post
+      Cod_Post: postagem.Cod_Post,
     }
   });
 
