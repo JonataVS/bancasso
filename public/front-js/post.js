@@ -21,12 +21,12 @@ function genPostagem (postagem) {
 function updatePost (postagem) {
     const updatePubli = document.querySelector(`#Cod_Post-${postagem.Cod_Post}`);
 
-    updatePubli.querySelector('.vai').onclicl = () => {
+    updatePubli.querySelector('.edit').onclick = () => {
         fetch(`/posts/${postagem.Cod_Post}`, {
             method: 'post',
         });
 
-        updatePubli.update();
+        updatePubli.update()
     };
 }
 
