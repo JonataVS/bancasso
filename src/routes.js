@@ -96,7 +96,7 @@ router.get('/atualizar', function (req, res) {
 
 //router from update posts
 
-router.put('/posts/:id', async (req, res) => {
+router.post('/posts/:id', async (req, res) => {
 
     const id = Number(req.params.id)
 
@@ -106,8 +106,10 @@ router.put('/posts/:id', async (req, res) => {
 
     if(id && postagem) {
         const updatePost = await Postagem.upsert(postagem);
-
         res.json(updatePost);
+        if (updatePost) {
+            res.sendFile(path.join(__dirname, '../public/posts.html'))
+        }
     } else {
         throw new HTTPError('Invalid update post', 400);
     }

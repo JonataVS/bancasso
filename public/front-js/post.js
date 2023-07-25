@@ -5,29 +5,17 @@ function genPostagem (postagem) {
     <p>${postagem.conteudo}</p>
     </div><br>
     <div class="formulario" id="Cod_Post-${postagem.Cod_Post}">
-    <form action="/posts">
+    <form action="/posts/${postagem.Cod_Post}" method="POST">
     <label for="titulo">Título da Postagem</label><br>
     <input type="text" name="titulo" maxlength="500" required><br>
     <label for="conteudo">Conteúdo:</label><br>
     <textarea name="conteudo" required></textarea><br>
-    <button class="edit">Vai</button>
+    <input type="submit" value="Editar" href="/viewpost"><br>
     </form>
 </div>
     `
 
     return html
-}
-
-function updatePost (postagem) {
-    const updatePubli = document.querySelector(`#Cod_Post-${postagem.Cod_Post}`);
-
-    updatePubli.querySelector('.edit').onclick = () => {
-        fetch(`/posts/${postagem.Cod_Post}`, {
-            method: 'post',
-        });
-
-        updatePubli.update()
-    };
 }
 
 function insertPost (postagem) {
