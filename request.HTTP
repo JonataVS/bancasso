@@ -10,4 +10,4 @@ Content-Type: application/json
 }
 
 ### Delete post
-DELETE {{host}}/posts/2
+DELETE {{host}}/posts/1

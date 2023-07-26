@@ -144,10 +144,11 @@ router.get('/getposts', async (req, res, next) => {
 
 //router from delete postagens
 
-router.delete('/posts/:Cod_Post', async (req, res) => {
-    const Cod_Post = req.params.Cod_Post
+router.delete('/posts/:id', async (req, res) => {
+    const id = Number(req.params.id);
+    Postagem.Cod_Post = id
 
-    if(Cod_Post && await Postagem.remove((Cod_Post))){
+    if(id && (await Postagem.remove(id))){
         res.sendStatus(204);
     } else {
         throw new HTTPError('Cod_Post is required to remove Postagem', 400);

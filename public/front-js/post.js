@@ -10,8 +10,9 @@ function genPostagem (postagem) {
     <input type="text" name="titulo" maxlength="500" required><br>
     <label for="conteudo">Conteúdo:</label><br>
     <textarea name="conteudo" required></textarea><br>
-    <input type="submit" value="Editar" href="/ viewpost"><br>
+    <input type="submit" value="Editar"><br>
     </form>
+    <button class="delete" id="Cod_Post-${postagem.Cod_Post} value="Deletar"></button>
 </div>
     `
 
@@ -37,29 +38,12 @@ async function showPostagens () {
 
 showPostagens ()
 
-/*function updatePost (postagem) {
-    const updateButton = document.querySelector(`Cod_Post-${postagem.Cod_Post}`);
-    
-    updateButton.querySelector('.edit').onclick = () => {
-        const updateHtml = `
-        <div class="formulario">
-        <form action="/posts/${postagem.Cod_Post}">
-        <label for="titulo">Título da Postagem</label><br>
-        <input type="text" name="titulo" maxlength="500" required><br>
-        <label for="conteudo">Conteúdo:</label><br>
-        <textarea name="conteudo" required></textarea><br>
-        <input type="submit" value="Publicar" href="/viewpost">
-        </form>
-    </div>`
+const postIcon = document.querySelector(`#Cod_Post-${postagem.Cod_Post}`);
 
-    return updateHtml
-    }
+postIcon.querySelector('.delete').onclick = () => {
+    fetch(`/posts/${postagem.Cod_Post}`, {
+        method: 'delete',
+    });
 
+    postIcon.remove()
 }
-
-function insertUpdate (postagem) {
-    const update = document.querySelector('.update-post')
-    const updateView = updatePost(postagem)
-
-    update.insertAdjacentHTML('beforeend', updateView)
-}*/
