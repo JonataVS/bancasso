@@ -106,10 +106,10 @@ router.post('/posts/:id', async (req, res) => {
 
     if(id && postagem) {
         const updatePost = await Postagem.upsert(postagem);
-        res.json(updatePost);
-        if (updatePost) {
-            res.sendFile(path.join(__dirname, '../public/posts.html'))
-        }
+        const updatePage = res.redirect('/viewpost');
+
+        res.json(updatePost, updatePage);
+
     } else {
         throw new HTTPError('Invalid update post', 400);
     }
@@ -124,9 +124,9 @@ router.post('/newpost', async (req, res) => {
     const newPostagem = await Postagem.create(postagem);
 
     if (newPostagem) {
-        res.sendFile(path.join(__dirname, '../public/posts.html'))
+        res.redirect('/viewpost');
     } else {
-        throw new HTTPError('Invalid data to create postagem, 400')
+        throw new HTTPError('Invalid data to create postagem, 400');
     }
 });
 
@@ -166,7 +166,7 @@ router.post('/usuario', async (req, res) => {
     const newUsuario = await Usuario.create(usuario);
 
     if (newUsuario) {
-        res.sendFile(path.join(__dirname, '../public/init.html'));
+        res.redirect('/init');
     } else {
         throw new HTTPError('Invalid data to create usuario', 400);
    } 

@@ -10,7 +10,7 @@ function genPostagem (postagem) {
     <input type="text" name="titulo" maxlength="500" required><br>
     <label for="conteudo">Conteúdo:</label><br>
     <textarea name="conteudo" required></textarea><br>
-    <input type="submit" value="Editar" href="/viewpost"><br>
+    <input type="submit" value="Editar" href="/ viewpost"><br>
     </form>
 </div>
     `
