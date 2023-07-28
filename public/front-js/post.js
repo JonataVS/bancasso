@@ -12,10 +12,9 @@ function genPostagem (postagem) {
     <textarea name="conteudo" required></textarea><br>
     <input type="submit" value="Editar"><br>
     </form>
-    <button class="delete" id="Cod_Post-${postagem.Cod_Post} value="Deletar"></button>
-</div>
+</div><br>
+<button type="submit" class="delete" value="${postagem.Cod_Post}">Deletar</button>
     `
-
     return html
 }
 
@@ -24,6 +23,14 @@ function insertPost (postagem) {
     const postagemView = genPostagem(postagem)
 
     post.insertAdjacentHTML('beforeend', postagemView)
+    
+    const deleteButton = post.querySelector('.delete')
+
+    deleteButton.onclick = () => {
+        fetch(`/posts/${postagem.Cod_Post}`, {method: 'DELETE'});
+
+        post.remove();
+ }
 }
 
 async function showPostagens () {
@@ -37,13 +44,3 @@ async function showPostagens () {
 }
 
 showPostagens ()
-
-const postIcon = document.querySelector(`#Cod_Post-${postagem.Cod_Post}`);
-
-postIcon.querySelector('.delete').onclick = () => {
-    fetch(`/posts/${postagem.Cod_Post}`, {
-        method: 'delete',
-    });
-
-    postIcon.remove()
-}
