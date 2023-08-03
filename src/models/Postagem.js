@@ -57,6 +57,16 @@ async function upsert(Postagem) {
 
 //
 
+async function readOne(Cod_Post) {
+  const postagem = await prisma.postagem.findUnique({
+    where: { Cod_Post }
+  });
+
+  return postagem
+}
+
+//
+
 async function remove(Cod_Post) {
   const removePostagem = await prisma.postagem.delete({
     where: {
@@ -86,5 +96,6 @@ export default {
   update,
   upsert,
   remove,
-  readAll
+  readAll,
+  readOne,
 };

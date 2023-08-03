@@ -1,6 +1,7 @@
 function genPostagem (postagem) {
     const html = `
     <div class="postagem" id="Cod_Post-${postagem.Cod_Post}">
+    <button type="submit" class="delete">Deletar</button>
     <h1>${postagem.titulo}</h1>
     <p>${postagem.conteudo}</p>
     </div><br>
@@ -13,7 +14,6 @@ function genPostagem (postagem) {
     <input type="submit" value="Editar"><br>
     </form>
 </div><br>
-<button type="submit" class="delete" value="${postagem.Cod_Post}">Deletar</button>
     `
     return html
 }
@@ -23,7 +23,6 @@ function insertPost (postagem) {
     const postagemView = genPostagem(postagem)
 
     post.insertAdjacentHTML('beforeend', postagemView)
-    
     const deleteButton = post.querySelector('.delete')
 
     deleteButton.onclick = () => {
@@ -31,6 +30,17 @@ function insertPost (postagem) {
 
         post.remove();
  }
+    /*function addDeleteButton (postagem) {
+        const post = document.body.querySelector(`#Cod_Post-${postagem.Cod_Post}`)
+        const deleteButton = post.querySelector('.delete')
+    
+        deleteButton.onclick = () => {
+            fetch(`/posts/${postagem.Cod_Post}`, {method: 'DELETE'});
+    
+            post.remove();
+     }
+    }*/
+  
 }
 
 async function showPostagens () {
