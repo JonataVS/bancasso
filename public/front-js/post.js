@@ -11,9 +11,9 @@ function genPostagem (postagem) {
     <input type="text" name="titulo" maxlength="500" required><br>
     <label for="conteudo">Conteúdo:</label><br>
     <textarea name="conteudo" required></textarea><br>
-    <input type="submit" value="Editar"><br>
+    <button type="submit" class="fa-solid fa-pen-to-square fa-lg"></button>
     </form><br>
-    <button type="submit" class="delete" value="Cod_Post-${postagem.Cod_Post}">Deletar</button>
+    <button type="submit" class="fa-sharp fa-solid fa-trash fa-lg" id="delete" value="Cod_Post-${postagem.Cod_Post}"></button>
 </div>
     `
     return html
@@ -31,7 +31,7 @@ function insertPost (postagem) {
 
     const localPost = gridPost.querySelector(`#Cod_Post-${postagem.Cod_Post}`)
     
-    const deleteButton = localPost.querySelector('.delete')
+    const deleteButton = localPost.querySelector('#delete')
 
     deleteButton.onclick = () => {
         fetch(`/posts/${postagem.Cod_Post}`, {method: 'DELETE'});
