@@ -7,9 +7,9 @@ function genPostagem (postagem) {
     <p>${postagem.conteudo}</p>
     <br>
     <form action="/posts/${postagem.Cod_Post}" method="POST">
-    <label for="titulo">Título da Postagem</label><br>
+    <label for="titulo">Edite seu título</label><br>
     <input type="text" name="titulo" maxlength="500" required><br>
-    <label for="conteudo">Conteúdo:</label><br>
+    <label for="conteudo">Edite seu conteúdo</label><br>
     <textarea name="conteudo" required></textarea><br>
     <button type="submit" class="fa-solid fa-pen-to-square fa-lg"></button>
     <button type="submit" class="fa-sharp fa-solid fa-trash fa-lg" id="delete" value="Cod_Post-${postagem.Cod_Post}"></button>
