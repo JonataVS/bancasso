@@ -12,8 +12,8 @@ function genPostagem (postagem) {
     <label for="conteudo">Conteúdo:</label><br>
     <textarea name="conteudo" required></textarea><br>
     <button type="submit" class="fa-solid fa-pen-to-square fa-lg"></button>
-    </form><br>
     <button type="submit" class="fa-sharp fa-solid fa-trash fa-lg" id="delete" value="Cod_Post-${postagem.Cod_Post}"></button>
+    </form><br>
 </div>
     `
     return html
