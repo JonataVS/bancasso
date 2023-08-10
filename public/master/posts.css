@@ -37,7 +37,9 @@ p,h1{
 	flex-direction: column;
 	width: 50vw;
 	/* word-break: break-word; */
-	margin-bottom: 5px;
+	margin-bottom: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
 }
 
 p{
