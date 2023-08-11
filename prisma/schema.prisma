@@ -18,7 +18,6 @@ model Usuario {
   email String @unique
   senha String
   sexo String
-  tipo String
 }
 
 model Postagem {
@@ -26,3 +25,4 @@ model Postagem {
   titulo String
   conteudo String
 }
+
