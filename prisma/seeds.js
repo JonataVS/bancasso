@@ -5,8 +5,7 @@ const prisma = new PrismaClient();
 async function main() {
     const usuario = await prisma.usuario.create({
         data: {
-            id: 1,
-            name: 'Jonata Venâncio',
+            nome: 'Jonata Venâncio',
             email: 'jonata@gmail.com',
             senha: '123',
             sexo: 'masculino',
@@ -18,7 +17,7 @@ async function main() {
         data:{
             Cod_Post: 1,
             titulo: 'LP-2023',
-            conteudo: 'Intale o prisma pela documentação no quickstart prisma'
+            conteudo: 'Isntale o prisma pela documentação no Quickstart do prisma'
         },
     });
 }
