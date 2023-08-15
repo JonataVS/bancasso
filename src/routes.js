@@ -5,7 +5,6 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 import Usuario from './models/Usuario.js';
 import Postagem from './models/Postagem.js';
-// import Disciplinas from './models/Disciplinas.js';
 
 class HTTPError extends Error {
     constructor(message, code) {
