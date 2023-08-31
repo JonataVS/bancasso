@@ -40,7 +40,7 @@ async function update(usuario, id) {
 //
 
 async function remove(id) {
-  const removeUsuario = await prisma.usuario.remove({
+  const removeUsuario = await prisma.usuario.delete({
     where: {
       id,
     },

@@ -3,15 +3,18 @@
 import { Router } from 'express';
 import { fileURLToPath } from 'url';
 import path from 'path';
+import bcrypt from 'bcrypt';
+import 'dotenv/config';
 import Usuario from './models/Usuario.js';
 import Postagem from './models/Postagem.js';
-
 class HTTPError extends Error {
     constructor(message, code) {
         super(message);
         this.code = code;
     }
 }
+
+const saltRounds = Number(process.env.SALT_ROUNDS);
 
 const __filename = fileURLToPath(import.meta.url);
 
@@ -157,11 +160,14 @@ router.delete('/posts/:id', async (req, res) => {
 // router from usuario infos
 
 router.post('/usuario', async (req, res) => {
-
     
     const usuario = req.body;
 
     console.log(usuario)
+
+    const hash = await bcrypt.hash(usuario.senha, saltRounds);
+
+    usuario.senha = hash;
 
     const newUsuario = await Usuario.create(usuario);
 
@@ -198,7 +204,8 @@ router.put('/usuario/:id', async (req, res) => {
 //router from delete usuario
 
 router.delete('/usuario/:id', async (req, res) => {
-    const id = req.params.id;
+    const id = Number(req.params.id);
+    
 
     if (id && (await Usuario.remove(id))) {
         res.sendStatus(204);

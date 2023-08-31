@@ -17,7 +17,7 @@ async function main() {
         data:{
             Cod_Post: 1,
             titulo: 'LP-2023',
-            conteudo: 'Isntale o prisma pela documentação no Quickstart do prisma'
+            conteudo: 'Instale o prisma pela documentação no Quickstart do prisma'
         },
     });
 }
