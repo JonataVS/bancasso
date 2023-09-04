@@ -9,6 +9,16 @@ Content-Type: application/json
     "conteudo": "no front-end"
 }
 
+### Post usuario
+POST {{host}}/usuario
+Content-Type: application/json
+
+{
+    "nome": "pabro",
+    "email": "pabro@gmial.com",
+    "senha": "pabro123",
+    "sexo": "outro"
+}
 ### Delete post
 DELETE {{host}}/posts/10
 

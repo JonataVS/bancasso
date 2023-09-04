@@ -178,6 +178,34 @@ router.post('/usuario', async (req, res) => {
    } 
 });
 
+//router signin
+
+router.post('/login', async (req, res) => {
+    try {
+        const { email, password } = req.body;
+
+        const user = await Usuario.readByEmail(email);
+
+        const { id: usuarioId, password: hash } = user;
+
+        const match = await bcrypt.compare(password, hash);
+        
+        if(match) {
+            const token = jwt.sign(
+                { usuarioId },
+                process.env.SECRET,
+                { expiresIn: 3600 }
+            );
+            
+            res.json({auth: true, token});
+        } else {
+            throw new Error('Usuario não encontrado!');
+        } 
+    } catch (error) {
+        res.status(401).json({ error: 'Usuario não encontrado!' })
+    }
+});
+
 //router view usuarios
 
 router.get('/usuario', async (req, res) => {
