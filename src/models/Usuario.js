@@ -50,6 +50,8 @@ async function remove(id) {
 
 };
 
+//
+
 async function readAll() {
   const readAllUsuario = await prisma.usuario.findMany({
     select: { 
@@ -61,13 +63,23 @@ async function readAll() {
   return readAllUsuario
 };
 
-
 //
+
+async function readByEmail(email) {
+  const usuarioEmail = await prisma.usuario.findFirst({
+    where: {
+      email,
+    },
+  });
+
+  return usuarioEmail
+}
 
 export default {
   create,
   read,
   update,
   remove,
-  readAll
+  readAll,
+  readByEmail
 };

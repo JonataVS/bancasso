@@ -187,7 +187,7 @@ router.post('/login', async (req, res) => {
     try {
         const { email, senha } = req.body;
 
-        const user = await Usuario.readByEmail(email);
+        const user = await usuarioId.readByEmail(email);
 
         const { id: usuarioId, senha: hash } = user;
 
