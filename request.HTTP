@@ -15,7 +15,7 @@ Content-Type: application/json
 
 {
     "nome": "pabro",
-    "email": "pabro@gmial.com",
+    "email": "pabro@gmail.com",
     "senha": "pabro123",
     "sexo": "outro"
 }
@@ -23,4 +23,13 @@ Content-Type: application/json
 DELETE {{host}}/posts/10
 
 ### Delete usuario
-DELETE {{host}}/usuario/6
+DELETE {{host}}/usuario/12
+
+### Login
+POST {{host}}/login
+Content-Type: application/json
+
+{
+    "email": "pabro@gmail.com",
+    "senha": "pabro123"
+}

@@ -1,6 +1,6 @@
 function isAuthenticated() {
   if(!getToken()) {
-    window.location.href = 'login';
+    window.location.href = '/login.html';
   } else {
     return true;
   }

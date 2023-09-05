@@ -22,7 +22,7 @@ async function handleSubmit(event) {
   const { auth, token } = await response.json();
 
   if(auth) {
-    API.signin(token);
+    API.login(token);
   } else {
     console.log('Erro no login');
   }

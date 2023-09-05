@@ -4,9 +4,12 @@ import { Router } from 'express';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import 'dotenv/config';
 import Usuario from './models/Usuario.js';
 import Postagem from './models/Postagem.js';
+
+import { isAuthenticated } from './middleware/auth.js';
 class HTTPError extends Error {
     constructor(message, code) {
         super(message);
@@ -146,7 +149,7 @@ router.get('/getposts', async (req, res, next) => {
 
 //router from delete postagens
 
-router.delete('/posts/:id', async (req, res) => {
+router.delete('/posts/:id', isAuthenticated, async (req, res) => {
     const id = Number(req.params.id);
     Postagem.Cod_Post = id
 
@@ -182,13 +185,13 @@ router.post('/usuario', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     try {
-        const { email, password } = req.body;
+        const { email, senha } = req.body;
 
         const user = await Usuario.readByEmail(email);
 
-        const { id: usuarioId, password: hash } = user;
+        const { id: usuarioId, senha: hash } = user;
 
-        const match = await bcrypt.compare(password, hash);
+        const match = await bcrypt.compare(senha, hash);
         
         if(match) {
             const token = jwt.sign(

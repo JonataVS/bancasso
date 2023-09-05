@@ -11,17 +11,17 @@
 </head>
 <body>
     <div class="box">
-        <form action="/login">
+        <form onsubmit="handleSubmit(event)">
                 <legend><b>Login de Alunos</b></legend>
                 <br><br>
                 <div class="inputBox">
-                    <input type="text" name="matricula" id="matricula" class="inputUser" maxlength="11" required>
-                    <label for="matricula" class="labelInput">Matricula</label>
+                    <input type="text" name="email" id="email" class="inputUser" required>
+                    <label for="email" class="labelInput">Email</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <input type="password" name="senha" id="senha" class="inputUser" maxLenght="8" required>
-                    <label for="matricula" class="labelInput">Senha</label>
+                    <input type="password" name="senha" id="senha" class="inputUser" required>
+                    <label for="senha" class="labelInput">Senha</label>
                 </div>
                 <br>
                 <button type="submit" id="submit">Enviar</button>
@@ -29,6 +29,6 @@
                 <p class="pt" >Não tem uma conta?</p><a class="lk" href="init.html">Cadastre-se!</a>
         </form>
     </div>
-    <script src="front-js/signin.js"></script>
+    <script src="./front-js/signin.js" type="module"></script>
 </body>
 </html>
