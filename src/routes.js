@@ -185,17 +185,17 @@ router.post('/usuario', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     try {
-        const { email, password } = req.body;
+        const { email, senha } = req.body;
 
         const user = await Usuario.readByEmail(email);
 
-        const { id: userId, password: hash } = user;
+        const { id: usuarioId, senha: hash } = user;
 
-        const match = await bcrypt.compare(password, hash);
+        const match = await bcrypt.compare(senha, hash);
         
         if(match) {
             const token = jwt.sign(
-                { userId },
+                { usuarioId },
                 process.env.JWT_SECRET,
                 { expiresIn: 3600 }
             );
