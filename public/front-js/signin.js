@@ -16,6 +16,7 @@ async function handleSubmit(event) {
       'Content-Type': 'application/json',
     },
   };
+  //console.log(usuario);
 
   const response = await fetch('/login', config);
 
@@ -26,4 +27,6 @@ async function handleSubmit(event) {
   } else {
     console.log('Erro no login');
   }
-}
+};
+
+//console.log(form);
