@@ -1,4 +1,5 @@
 @host = http://localhost:3000
+//@token = {{login.response.body.$.token}}
 
 ### Update post
 PUT {{host}}/posts/2
@@ -25,7 +26,8 @@ DELETE {{host}}/posts/10
 ### Delete usuario
 DELETE {{host}}/usuario/12
 
-### Login
+### Login valido
+# @name login
 POST {{host}}/login
 Content-Type: application/json
 

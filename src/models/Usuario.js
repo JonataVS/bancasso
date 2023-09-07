@@ -66,13 +66,13 @@ async function readAll() {
 //
 
 async function readByEmail(email) {
-  const usuarioEmail = await prisma.usuario.findFirst({
+  const usuario = await prisma.usuario.findFirst({
     where: {
       email,
     },
   });
 
-  return usuarioEmail
+  return usuario;
 }
 
 export default {

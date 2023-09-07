@@ -185,27 +185,27 @@ router.post('/usuario', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     try {
-        const { email, senha } = req.body;
+        const { email, password } = req.body;
 
-        const user = await usuarioId.readByEmail(email);
+        const user = await Usuario.readByEmail(email);
 
-        const { id: usuarioId, senha: hash } = user;
+        const { id: userId, password: hash } = user;
 
-        const match = await bcrypt.compare(senha, hash);
+        const match = await bcrypt.compare(password, hash);
         
         if(match) {
             const token = jwt.sign(
-                { usuarioId },
-                process.env.SECRET,
+                { userId },
+                process.env.JWT_SECRET,
                 { expiresIn: 3600 }
             );
             
             res.json({auth: true, token});
         } else {
-            throw new Error('Usuario não encontrado!');
+            throw new Error('Token não encontrado');
         } 
     } catch (error) {
-        res.status(401).json({ error: 'Usuario não encontrado!' })
+        res.status(401).json({ error: 'Usuario não existe' })
     }
 });
 
