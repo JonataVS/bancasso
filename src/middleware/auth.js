@@ -14,6 +14,8 @@ function isAuthenticated(req, res, next) {
   } catch (error) {
     res.status(401).send({ auth: false, message: 'Token Invalid.' });
   }
+
+  console.log(authorizaton);
 }
 
 export { isAuthenticated };

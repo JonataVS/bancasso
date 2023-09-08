@@ -37,7 +37,7 @@
 </header>
 <body>
     <div class="formulario">
-        <form action="/newpost" method="POST">
+        <form action="/newpost" onsubmit="loadFormSubmit()">
             
         <label for="titulo">Título da Postagem</label><br>
 
@@ -50,5 +50,6 @@
         <input type="submit" id="submit" value="Publicar" href="/viewpost">
         </form>
     </div>
+    <script src="./front-js/postform.js" type="module"></script>
 </body>
 </html>

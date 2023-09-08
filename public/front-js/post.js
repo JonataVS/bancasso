@@ -1,3 +1,5 @@
+import API from './lib/auth.js';
+
 // genPostagem contains the HTML of the post
 
 function genPostagem (postagem) {
@@ -34,7 +36,12 @@ function insertPost (postagem) {
     const deleteButton = localPost.querySelector('#delete')
 
     deleteButton.onclick = () => {
-        fetch(`/posts/${postagem.Cod_Post}`, {method: 'DELETE'});
+        fetch(`/posts/${postagem.Cod_Post}`, 
+        {method: 'DELETE',
+    headers: {
+        Authorization: `Bearer ${API.getToken()}`,
+    },
+});
 
         localPost.remove();
  }
@@ -52,3 +59,5 @@ async function showPostagens () {
 }
 
 showPostagens ()
+
+export default {insertPost};

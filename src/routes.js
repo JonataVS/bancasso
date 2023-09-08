@@ -101,7 +101,7 @@ router.get('/atualizar', function (req, res) {
 
 //router from update posts
 
-router.post('/posts/:id', async (req, res) => {
+router.post('/posts/:id', isAuthenticated, async (req, res) => {
 
     const id = Number(req.params.id)
 
@@ -122,7 +122,7 @@ router.post('/posts/:id', async (req, res) => {
 
 //router from postagem infos
 
-router.post('/newpost', async (req, res) => {
+router.post('/newpost', isAuthenticated, async (req, res) => {
     const postagem = req.body
     console.log(postagem)
 
@@ -137,7 +137,7 @@ router.post('/newpost', async (req, res) => {
 
 //router view postagens
 
-router.get('/getposts', async (req, res, next) => {
+router.get('/getposts', isAuthenticated, async (req, res, next) => {
     try {
         const postagens = await Postagem.readAll();
         console.log(postagens)
