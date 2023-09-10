@@ -16,12 +16,16 @@ body{
 fieldset{
     border: 3px solid dodgerblue;
 }
-legend{
-    border: 1px solid dodgerblue;
+.login{
+    margin: 47px;
     padding: 10px;
     text-align: center;
     background-color: dodgerblue;
-    border-radius: 8px;
+    border-radius: 10px;
+    background-image: linear-gradient(to right,rgb(213, 20, 220), rgb(0, 92, 197));
+}
+.login:hover {
+    background-image: linear-gradient(to right,rgb(213, 20, 220), rgb(213, 20, 220));
 }
 .inputBox{
     position: relative;
@@ -57,7 +61,7 @@ legend{
     font-size: 15px;
 }
 #submit{
-    background-image: linear-gradient(to right,rgb(0, 92, 197), rgb(90, 20, 220));
+    background-image: linear-gradient(to right,rgb(0, 92, 197), rgb(213, 20, 220));
     width: 100%;
     border: none;
     padding: 15px;

@@ -1,36 +1,19 @@
-body{
-    font-family: 'Poppins', sans-serif;
-    background-image: linear-gradient(45deg, cyan, yellow);
-    background-size: cover;
-    padding: 30px 0;
-}
-div{
-    background-color: rgba(0, 0, 0, 0.9);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    padding: 80px;
-    border-radius: 15px;
-    color: #fff;
-}
-input{
-    padding: 15px;
-    border: none;
-    outline: none;
-    font-size: 15px;
-}
-button{
+legend{
+    border: 1px solid dodgerblue;
+    padding: 10px;
+    text-align: center;
     background-color: dodgerblue;
-    border: none;
-    padding: 15px;
-    width: 100%;
-    border-radius: 10px;
-    color: white;
-    font-size: 15px;
-    
+    border-radius: 8px;
 }
-button:hover{
-    background-color: deepskyblue;
+
+.lk{
+    background-image: linear-gradient(to right, rgb(213, 20, 220),rgb(0, 92, 197));
+    padding: 15px;
+    margin: 75px;
+    font-size: 15px;
     cursor: pointer;
+    border-radius: 10px;
+}
+.lk:hover {
+    background-image: linear-gradient(to right,rgb(213, 20, 220), rgb(213, 20, 220));
 }

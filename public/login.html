@@ -4,6 +4,7 @@
 <head>
     <link rel="icon" type="image/jpg" href="img/icon.png">
     <link rel="stylesheet" type="text/css" href="master/form.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="master/login.css" media="screen" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,7 @@
 <body>
     <div class="box">
         <form class="form" onsubmit="handleSubmit(event)">
-                <legend><b>Login de Alunos</b></legend>
+                <legend><b>Faça seu login</b></legend>
                 <br><br>
                 <div class="inputBox">
                     <input type="text" name="email" id="email" class="inputUser" required>
@@ -26,7 +27,8 @@
                 <br>
                 <button type="submit" id="submit">Enviar</button>
                 <br><br>
-                <p class="pt" >Não tem uma conta?</p><a class="lk" href="init.html">Cadastre-se!</a>
+                <p class="pt" >Não tem uma conta?</p><br>
+                <a href="/form" class="lk">Cadastre-se!</a>
         </form>
     </div>
     <script src="./front-js/signin.js" type="module"></script>

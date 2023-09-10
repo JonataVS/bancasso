@@ -45,7 +45,7 @@ router.get('/init', function (req, res) {
 
 //router from login
 
-router.get('/login', function (req, res) {
+router.get('/entrar', function (req, res) {
     res.sendFile(path.join(__dirname, '../public/login.html'))
 });
 

@@ -3,6 +3,7 @@
 <head>
     <link rel="icon" type="image/jpg" href="img/icon.png">
     <link rel="stylesheet" type="text/css" href="master/form.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="master/login.css" media="screen" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +11,9 @@
 </head>
 <body>
     <form action="/usuario" method="POST"
-        <div class="box">
-                <legend><b>Cadastre-se</b></legend>
-                <br><br>
+    <div class="box">
+        <a href="/entrar" class="login">Já possuo uma conta</a>
+        <br><br><br>
                 <div class="inputBox">
                     <input type="text" name="nome" id="nome" class="inputUser" required>
                     <label for="nome" class="labelInput">Nome</label>
@@ -40,7 +41,7 @@
                 <br>
                 <input type="submit" id="submit" value="Cadastrar-se" href="/init.html">
                 <br>
-        </div>
-    </form>
+            </div>
+        </form>
 </body>
 </html>
