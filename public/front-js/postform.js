@@ -1,28 +1,29 @@
-import insertPost from './post.js'
-import Postagem from '../../src/models/Postagem.js';
 import API from './lib/auth.js';
 
+const form = document.querySelector('form');
+console.log(form);
+
 function loadFormSubmit() {
-    const form = document.querySelector('form');
+  form.onsubmit = async (event) => {
+    event.preventDefault();
 
-    form.onsubmit = async (event) => {
-        event.preventDefault();
+    const Postagem = Object.fromEntries(new FormData(form));
 
-        const response = await fetch('/newpost', {
-            method: 'post',
-            body: JSON.stringify(Postagem),
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${API.getToken()}`
-            },
-        });
+    const response = await fetch('/newpost', {
+      method: 'POST',
+      body: JSON.stringify(Postagem),
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${API.getToken()}`,
+      },
+    });
 
-        const newpost = await response.json();
+    const newpost = await response.json();
 
-        insertPost(newpost);
-    }
-};
+    console.log(newpost);
+  };
+}
 
-if(API.isAuthenticated()) {
-    loadFormSubmit();
+if (API.isAuthenticated()) {
+  loadFormSubmit();
 }

@@ -17,7 +17,7 @@ function login(token) {
 }
 
 function logout() {
-  localStorage.removeItem('@sst: token');
+  localStorage.removeItem('@sst:token');
 
   window.location.href = '/form.html';
 }

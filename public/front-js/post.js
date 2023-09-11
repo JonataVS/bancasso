@@ -2,8 +2,8 @@ import API from './lib/auth.js';
 
 // genPostagem contains the HTML of the post
 
-function genPostagem (postagem) {
-    const html = `
+function genPostagem(postagem) {
+  const html = `
     <div class="postagem" id="Cod_Post-${postagem.Cod_Post}">
     <h1>${postagem.titulo}</h1>
     <p>${postagem.conteudo}</p>
@@ -17,47 +17,46 @@ function genPostagem (postagem) {
     <button type="submit" class="fa-sharp fa-solid fa-trash fa-lg" id="delete" value="Cod_Post-${postagem.Cod_Post}"></button>
     </form><br>
 </div>
-    `
-    return html
+    `;
+  return html;
 }
 
 // insertPost insert post in body HTML
 
-function insertPost (postagem) {
-    const gridPost = document.querySelector('.grid-posts')
-    const postagemView = genPostagem(postagem)
+export default function insertPost(postagem) {
+  const gridPost = document.querySelector('.grid-posts');
+  const postagemView = genPostagem(postagem);
 
-    gridPost.insertAdjacentHTML('beforeend', postagemView)
+  console.log(gridPost, 'gridpost');
 
-// function button for remove post     
+  gridPost.insertAdjacentHTML('beforeend', postagemView);
 
-    const localPost = gridPost.querySelector(`#Cod_Post-${postagem.Cod_Post}`)
-    
-    const deleteButton = localPost.querySelector('#delete')
+  // function button for remove post
 
-    deleteButton.onclick = () => {
-        fetch(`/posts/${postagem.Cod_Post}`, 
-        {method: 'DELETE',
-    headers: {
+  const localPost = gridPost.querySelector(`#Cod_Post-${postagem.Cod_Post}`);
+
+  const deleteButton = localPost.querySelector('#delete');
+
+  deleteButton.onclick = () => {
+    fetch(`/posts/${postagem.Cod_Post}`, {
+      method: 'DELETE',
+      headers: {
         Authorization: `Bearer ${API.getToken()}`,
-    },
-});
+      },
+    });
 
-        localPost.remove();
- }
+    localPost.remove();
+  };
 }
 
 // showPostagens return posts in HTML
 
-async function showPostagens () {
-    const postagens = await fetch('/getposts').then(res => res.json())
+async function showPostagens() {
+  const postagens = await fetch('/getposts').then((res) => res.json());
 
-    console.log(postagens)
+  console.log(postagens);
 
-    postagens.forEach(element => insertPost(element))
-
+  postagens.forEach((element) => insertPost(element));
 }
 
-showPostagens ()
-
-export default {insertPost};
+showPostagens();

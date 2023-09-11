@@ -2,9 +2,9 @@ import jwt from 'jsonwebtoken';
 
 function isAuthenticated(req, res, next) {
   try {
-    const { authorizaton } = req.headers;
+    const { authorization } = req.headers;
 
-    const [, token] = authorizaton.split(' ');
+    const [, token] = authorization.split(' ');
 
     const { usuarioId } = jwt.verify(token, process.env.JWT_SECRET);
 
@@ -15,7 +15,7 @@ function isAuthenticated(req, res, next) {
     res.status(401).send({ auth: false, message: 'Token Invalid.' });
   }
 
-  console.log(authorizaton);
+console.log(authorization);
 }
 
 export { isAuthenticated };

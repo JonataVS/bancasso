@@ -1,55 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/jpg" href="img/icon.png">
-    <link rel="stylesheet" href="master/postagens.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/jpg" href="img/icon.png" />
+    <link rel="stylesheet" href="master/postagens.css" />
     <title>Nova postagem</title>
-</head>
-<header class="primary-header">
+  </head>
+  <header class="primary-header">
     <nav class="navbar">
-        <div class="container-xl">
-            <a href="#" class="logo">SST</a>
-            <ul class="nav-list">
-                <li>
-                    <a href="/manutencao.html" class="nav-link">Montagem e Manuntenção</a>
-                </li>
-                <li>
-                    <a href="/ltp" class="nav-link">Linguagem de Programação</a>
-                </li>
-                <li>
-                    <a href="/sistemas" class="nav-link">Sistemas Operacionais</a>
-                </li>
-                <li>
-                    <a href="/redes" class="nav-link">Redes de Internet</a>
-                </li>
-                <li>
-                    <a href="/fundamentos" class="nav-link">Fundamentos da Computação</a>
-                </li>
-                <li>
-                    <a href="/viewpost" class="nav-link">Postagens</a>
-                </li>
-            </ul>
-            <a href="#" class="button">Sair</a>
-        </div>
+      <div class="container-xl">
+        <a href="#" class="logo">SST</a>
+        <ul class="nav-list">
+          <li>
+            <a href="/manutencao.html" class="nav-link"
+              >Montagem e Manuntenção</a
+            >
+          </li>
+          <li>
+            <a href="/ltp" class="nav-link">Linguagem de Programação</a>
+          </li>
+          <li>
+            <a href="/sistemas" class="nav-link">Sistemas Operacionais</a>
+          </li>
+          <li>
+            <a href="/redes" class="nav-link">Redes de Internet</a>
+          </li>
+          <li>
+            <a href="/fundamentos" class="nav-link"
+              >Fundamentos da Computação</a
+            >
+          </li>
+          <li>
+            <a href="/viewpost" class="nav-link">Postagens</a>
+          </li>
+        </ul>
+        <a href="#" class="button">Sair</a>
+      </div>
     </nav>
-</header>
-<body>
+  </header>
+  <body>
     <div class="formulario">
-        <form action="/newpost" onsubmit="loadFormSubmit()">
-            
-        <label for="titulo">Título da Postagem</label><br>
+      <form>
+        <label for="titulo">Título da Postagem</label><br />
 
-        <input type="text" name="titulo" maxlength="500" required autocomplete="off"><br>
+        <input
+          type="text"
+          name="titulo"
+          maxlength="500"
+          required
+          autocomplete="off"
+        /><br />
 
-        <label for="conteudo">Conteúdo:</label><br>
+        <label for="conteudo">Conteúdo:</label><br />
 
-        <textarea name="conteudo" required autocomplete="off"></textarea><br>
+        <textarea name="conteudo" required autocomplete="off"></textarea><br />
 
-        <input type="submit" id="submit" value="Publicar" href="/viewpost">
-        </form>
+        <input type="submit" id="submit" value="Publicar" />
+      </form>
     </div>
     <script src="./front-js/postform.js" type="module"></script>
-</body>
+  </body>
 </html>
