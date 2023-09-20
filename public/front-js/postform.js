@@ -24,6 +24,7 @@ function loadFormSubmit() {
   };
 }
 
+
 if (API.isAuthenticated()) {
   loadFormSubmit();
 }

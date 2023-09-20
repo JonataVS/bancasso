@@ -23,7 +23,7 @@ function genPostagem(postagem) {
 
 // insertPost insert post in body HTML
 
-export default function insertPost(postagem) {
+ function insertPost(postagem) {
   const gridPost = document.querySelector('.grid-posts');
   const postagemView = genPostagem(postagem);
 
@@ -52,7 +52,12 @@ export default function insertPost(postagem) {
 // showPostagens return posts in HTML
 
 async function showPostagens() {
-  const postagens = await fetch('/getposts').then((res) => res.json());
+  const postagens = await fetch('/getposts', {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${API.getToken()}`, 
+    },
+  }).then((res) => res.json());
 
   console.log(postagens);
 

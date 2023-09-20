@@ -120,7 +120,7 @@ router.post('/posts/:id', isAuthenticated, async (req, res) => {
 
 router.post(
   '/newpost',
-  /* isAuthenticated, */ async (req, res) => {
+   isAuthenticated, async (req, res) => {
     const postagem = req.body;
     console.log(postagem);
 
@@ -138,7 +138,7 @@ router.post(
 
 router.get(
   '/getposts',
-  /* isAuthenticated, */ async (req, res, next) => {
+   isAuthenticated, async (req, res, next) => {
     try {
       const postagens = await Postagem.readAll();
       console.log(postagens);
@@ -153,7 +153,7 @@ router.get(
 
 router.delete(
   '/posts/:id',
-  /* isAuthenticated, */ async (req, res) => {
+   isAuthenticated, async (req, res) => {
     const id = Number(req.params.id);
     Postagem.Cod_Post = id;
 

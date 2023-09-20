@@ -9,13 +9,12 @@ function isAuthenticated(req, res, next) {
     const { usuarioId } = jwt.verify(token, process.env.JWT_SECRET);
 
     req.usuarioId = usuarioId;
+    console.log(authorization);
 
     next();
   } catch (error) {
     res.status(401).send({ auth: false, message: 'Token Invalid.' });
   }
-
-console.log(authorization);
 }
 
 export { isAuthenticated };
