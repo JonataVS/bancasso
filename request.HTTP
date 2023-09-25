@@ -7,7 +7,8 @@ Content-Type: application/json
 
 {
     "titulo": "tem que atualizar",
-    "conteudo": "no front-end"
+    "conteudo": "no front-end",
+    "usuarioId": "2"
 }
 
 ### Post usuario

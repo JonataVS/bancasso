@@ -11,8 +11,6 @@ async function create(postagem) {
       usuario: {
         select: {
           id: true,
-          nome: true,
-          email: true,
         },
       },
     },

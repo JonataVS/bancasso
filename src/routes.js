@@ -123,6 +123,7 @@ router.post(
    isAuthenticated, async (req, res) => {
     const usuarioId = req.usuarioId;
     const postagem = req.body;
+    postagem.usuario = (usuarioId);
     console.log(postagem);
 
     const newPostagem = await Postagem.create(postagem);
