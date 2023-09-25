@@ -27,7 +27,7 @@ function genPostagem(postagem) {
   const gridPost = document.querySelector('.grid-posts');
   const postagemView = genPostagem(postagem);
 
-  console.log(gridPost, 'gridpost');
+//  console.log(gridPost, 'gridpost');
 
   gridPost.insertAdjacentHTML('beforeend', postagemView);
 
@@ -64,4 +64,8 @@ async function showPostagens() {
   postagens.forEach((element) => insertPost(element));
 }
 
-showPostagens();
+//showPostagens();
+
+if(API.isAuthenticated()) {
+  showPostagens();
+}

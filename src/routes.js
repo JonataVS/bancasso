@@ -123,7 +123,7 @@ router.post(
    isAuthenticated, async (req, res) => {
     const usuarioId = req.usuarioId;
     const postagem = req.body;
-    postagem.usuario = (usuarioId);
+    postagem.usuarioId = usuarioId;
     console.log(postagem);
 
     const newPostagem = await Postagem.create(postagem);
@@ -141,13 +141,12 @@ router.post(
 router.get(
   '/getposts',
    isAuthenticated, async (req, res, next) => {
-    try {
-      const postagens = await Postagem.readAll();
-      console.log(postagens);
-      res.json(postagens);
-    } catch (e) {
-      next(e);
-    }
+    const usuarioId = req.usuarioId
+
+    const postagens = await Postagem.readAll({ usuarioId });
+
+    res.json(postagens);
+    //console.log(postagens);
   }
 );
 
