@@ -121,6 +121,7 @@ router.post('/posts/:id', isAuthenticated, async (req, res) => {
 router.post(
   '/newpost',
    isAuthenticated, async (req, res) => {
+    const usuarioId = req.usuarioId;
     const postagem = req.body;
     console.log(postagem);
 

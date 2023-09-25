@@ -2,6 +2,7 @@
 
 import prisma from '../database/index.js';
 
+
 async function create(postagem) {
   const newPostagem = await prisma.postagem.create({
     data: postagem,
@@ -15,6 +16,7 @@ async function create(postagem) {
         },
       },
     },
+
   });
 
   return newPostagem
