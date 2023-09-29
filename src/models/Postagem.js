@@ -90,9 +90,9 @@ async function remove(Cod_Post) {
 
 //
 
-async function readAll() {
+async function readAll(usuarioId) {
   const readAllPostagem = await prisma.postagem.findMany({
-    
+    where: {usuarioId},
   });
 
   return readAllPostagem

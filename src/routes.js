@@ -141,11 +141,13 @@ router.post(
 router.get(
   '/getposts',
    isAuthenticated, async (req, res, next) => {
-    const usuarioId = req.usuarioId
+    const usuarioId = req.usuarioId;
 
-    const postagens = await Postagem.readAll({ usuarioId });
+    console.log(usuarioId);
 
-    res.json(postagens);
+    const postagem = await Postagem.readAll(usuarioId);
+
+    res.json(postagem);
     //console.log(postagens);
   }
 );
