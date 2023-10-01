@@ -10,7 +10,7 @@
     <title>Cadastrar SST</title>
 </head>
 <body>
-    <form action="/usuario" method="POST"
+    <form class="form" onsubmit="handleSubmit(event)">
     <div class="box">
         <a href="/entrar" class="login">Já possuo uma conta</a>
         <br><br><br>
@@ -28,20 +28,11 @@
                     <input type="text" name="senha" id="senha" class="inputUser" autocomplete="off" required>
                     <label for="matricula" class="labelInput">Senha</label>
                 </div>
-                <p>Sexo:</p>
-                <input type="radio" id="feminino" name="sexo" value="feminino" required>
-                <label for="feminino">Feminino</label>
-                <br>
-                <input type="radio" id="masculino" name="sexo" value="masculino" required>
-                <label for="masculino">Masculino</label>
-                <br>
-                <input type="radio" id="outro" name="sexo" value="outro" required>
-                <label for="outro">Outro</label>
-                <br>
                 <br>
                 <input type="submit" id="submit" value="Cadastrar-se" href="init">
                 <br>
             </div>
         </form>
+        <script src="front-js/cadastro.js" type="module"></script>
 </body>
 </html>

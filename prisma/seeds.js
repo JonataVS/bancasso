@@ -8,7 +8,6 @@ async function main() {
             nome: 'Jonata Venâncio',
             email: 'jon@gmail.com',
             senha: '123',
-            sexo: 'masculino',
             postagem: {
                 create: {
                     Cod_Post: 1,

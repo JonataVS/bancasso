@@ -5,10 +5,12 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import {z} from 'zod';
 import 'dotenv/config';
 import Usuario from './models/Usuario.js';
 import Postagem from './models/Postagem.js';
 
+import { validate } from './middleware/validate.js'
 import { isAuthenticated } from './middleware/auth.js';
 class HTTPError extends Error {
   constructor(message, code) {
@@ -170,7 +172,16 @@ router.delete(
 
 // router from usuario infos
 
-router.post('/usuario', async (req, res) => {
+router.post('/usuario',
+validate(
+  z.object({
+    params: z.object({
+      nome: z.string(),
+      email: z.string().email(),
+      senha: z.string().min(8),
+    }),
+  })
+), async (req, res) => {
   const usuario = req.body;
 
   console.log(usuario);
@@ -181,16 +192,20 @@ router.post('/usuario', async (req, res) => {
 
   const newUsuario = await Usuario.create(usuario);
 
-  if (newUsuario) {
-    res.redirect('/init');
-  } else {
-    throw new HTTPError('Invalid data to create usuario', 400);
-  }
+  res.status(201).json(newUsuario);
 });
 
 //router signin
 
-router.post('/login', async (req, res) => {
+router.post('/login',
+validate(
+  z.object({
+    params: z.object({
+      email: z.string().email(),
+      senha: z.string().min(8),
+    })
+  })
+), async (req, res) => {
   try {
     const { email, senha } = req.body;
 
