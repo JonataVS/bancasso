@@ -1,4 +1,4 @@
-window.handleSubmit = handleSubmit;
+/*window.handleSubmit = handleSubmit;
 
 const form = document.querySelector('form');
 
@@ -32,4 +32,4 @@ async function handleSubmit(event) {
   } else {
     form.classList.add('was-validated');
   }
-};
+};*/
