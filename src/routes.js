@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import {z} from 'zod';
+import { z } from 'zod';
 import 'dotenv/config';
 import Usuario from './models/Usuario.js';
 import Postagem from './models/Postagem.js';

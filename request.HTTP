@@ -19,8 +19,18 @@ Content-Type: application/json
     "nome": "pabro",
     "email": "pabro@gmail.com",
     "senha": "pabro123",
-    "sexo": "outro"
 }
+
+### Post quebrado
+POST {{host}}/usuario
+Content-Type: application/json
+
+{
+    "nome": "pabro",
+    "email": "pabro",
+    "senha": "pabro",
+}
+
 ### Delete post
 DELETE {{host}}/posts/10
 
