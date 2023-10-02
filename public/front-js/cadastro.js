@@ -36,7 +36,13 @@ async function handleSubmit(event) {
     // form.classList.add('was-validated');
     if (form.nome.value === "") {
       document.querySelector('#nome + .invalid-feedback').style.display = 'block'
+    } if (form.email.value === "") {
+      document.querySelector('#email + .invalid-feedback').style.display = 'block'
+    } if (form.senha.value.lenght >= 8) {
+      return response;
+    } else {
+      document.querySelector('#senha + .invalid-feedback').style.display = 'block';
+      return false;
     }
-
   }
 };

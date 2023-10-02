@@ -35,7 +35,7 @@ Content-Type: application/json
 DELETE {{host}}/posts/10
 
 ### Delete usuario
-DELETE {{host}}/usuario/12
+DELETE {{host}}/usuario/2
 
 ### Login valido
 # @name login
