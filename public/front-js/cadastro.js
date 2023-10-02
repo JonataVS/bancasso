@@ -35,7 +35,6 @@ async function handleSubmit(event) {
       console.log('Error no cadastro');
     }
   } else {
-    // form.classList.add('was-validated');
     if (form.nome.value === "") {
       document.querySelector('#nome + .invalid-feedback').style.display = 'block'
     } 
@@ -44,12 +43,6 @@ async function handleSubmit(event) {
     } 
      if (senha < 8) {
       document.querySelector('#senha + .invalid-feedback').style.display = 'block';
-    } else {
-      const regexSpecials = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/;
-
-      if (regexSpecials.test(senha)) {
-        document.querySelector('#senha + .need-specials').style.display = 'block';
-      }
     }
   }
 };

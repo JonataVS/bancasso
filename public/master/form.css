@@ -50,7 +50,7 @@ fieldset{
 .inputUser:focus ~ .labelInput,
 .inputUser:valid ~ .labelInput{
     top: -20px;
-    font-size: 12px;
+    font-size: 10px;
     color: dodgerblue;
 }
 .d-none {
