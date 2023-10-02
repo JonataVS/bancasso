@@ -8,7 +8,7 @@ export function validate(schema) {
             });
             next();
         } catch (err) {
-            return res.status(400).send(err.errors);
+            return res.status(400).json({errors: err.errors});
         }
     };
 }

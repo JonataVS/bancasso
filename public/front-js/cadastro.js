@@ -2,8 +2,6 @@ window.handleSubmit = handleSubmit;
 
 const form = document.querySelector('form');
 
-console.log(form);
-
 async function handleSubmit(event) {
   event.preventDefault();
 
