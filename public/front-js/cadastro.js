@@ -2,6 +2,8 @@ window.handleSubmit = handleSubmit;
 
 const form = document.querySelector('form');
 
+const senha = form.senha.value
+
 
 
 async function handleSubmit(event) {
@@ -36,13 +38,18 @@ async function handleSubmit(event) {
     // form.classList.add('was-validated');
     if (form.nome.value === "") {
       document.querySelector('#nome + .invalid-feedback').style.display = 'block'
-    } if (form.email.value === "") {
+    } 
+    if (form.email.value === "") {
       document.querySelector('#email + .invalid-feedback').style.display = 'block'
-    } if (form.senha.value.lenght >= 8) {
-      return response;
-    } else {
+    } 
+     if (senha < 8) {
       document.querySelector('#senha + .invalid-feedback').style.display = 'block';
-      return false;
+    } else {
+      const regexSpecials = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/;
+
+      if (regexSpecials.test(senha)) {
+        document.querySelector('#senha + .need-specials').style.display = 'block';
+      }
     }
   }
 };
