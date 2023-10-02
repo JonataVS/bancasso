@@ -8,24 +8,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar SST</title>
+    <style>
+        .d-none {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <form action="/usuario" method="post">
+    <form class="needs-validation" onsubmit="handleSubmit(event)" novalidate>
     <div class="box">
         <a href="/entrar" class="login">Já possuo uma conta</a>
         <br><br><br>
                 <div class="inputBox">
                     <input type="text" name="nome" id="nome" class="inputUser" autocomplete="off">
+                    <div class="invalid-feedback d-none">O nome é um campo obrigatório</div>
                     <label for="nome" class="labelInput">Nome</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
                     <input type="text" name="email" id="email" class="inputUser" autocomplete="off" required>
+                    <div class="invalid-feedback"></div>
                     <label for="email" class="labelInput">Email</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
                     <input type="text" name="senha" id="senha" class="inputUser" autocomplete="off" required>
+                    <div class="invalid-feedback"></div>
                     <label for="senha" class="labelInput">Senha</label>
                 </div>
                 <br>

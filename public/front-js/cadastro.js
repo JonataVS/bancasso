@@ -1,6 +1,8 @@
-/*window.handleSubmit = handleSubmit;
+window.handleSubmit = handleSubmit;
 
 const form = document.querySelector('form');
+
+
 
 async function handleSubmit(event) {
   event.preventDefault();
@@ -9,6 +11,7 @@ async function handleSubmit(event) {
     const Usuario = Object.fromEntries(new FormData(form));
 
     //console.log(usuario);
+
 
     const config = {
       method: 'post',
@@ -30,6 +33,10 @@ async function handleSubmit(event) {
       console.log('Error no cadastro');
     }
   } else {
-    form.classList.add('was-validated');
+    // form.classList.add('was-validated');
+    if (form.nome.value === "") {
+      document.querySelector('#nome + .invalid-feedback').style.display = 'block'
+    }
+
   }
-};*/
+};

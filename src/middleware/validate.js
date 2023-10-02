@@ -1,4 +1,4 @@
-/*export function validate(schema) {
+export function validate(schema) {
     return function (req, res, next) {
         try {
             schema.parse({
@@ -11,4 +11,4 @@
             return res.status(400).json({errors: err.errors});
         }
     };
-}*/
+}
