@@ -15,13 +15,13 @@
         <a href="/entrar" class="login">Já possuo uma conta</a>
         <br><br><br>
                 <div class="inputBox">
-                    <input type="text" name="nome" id="nome" class="inputUser" autocomplete="off" required>
+                    <input type="text" name="nome" id="nome" class="inputUser" autocomplete="off" placeholder= "Insira seu nome..."required>
                     <div class="invalid-feedback d-none">O nome é um campo obrigatório.</div>
                     <label for="nome" class="labelInput">Nome</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <input type="text" name="email" id="email" class="inputUser" autocomplete="off" required>
+                    <input type="email" name="email" id="email" class="inputUser" autocomplete="off" required>
                     <div class="invalid-feedback d-none">O email é um campo obrigatório.</div>
                     <label for="email" class="labelInput">Email</label>
                 </div>
@@ -30,12 +30,6 @@
                     <input type="password" name="senha" id="senha" class="inputUser" autocomplete="off" minlength="8" required>
                     <div class="invalid-feedback d-none">Sua senha deve conter pelo menos 8 caracteres.</div>
                     <label for="senha" class="labelInput">Senha</label>
-                </div>
-                <br><br>
-                <div class="inputBox">
-                    <input type="password" name="confirmation" id="confirmation" class="inputUser" autocomplete="off" minlength="8" required>
-                    <div class="invalid-feedback d-none">As senhas não são iguais.</div>
-                    <label for="confirmation" class="labelInput">Confirme sua senha</label>
                 </div>
                 <br><br>
                 <input type="submit" id="submit" value="Cadastrar-se" href="init">

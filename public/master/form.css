@@ -1,3 +1,6 @@
+*{
+    max-width: 100%;
+}
 body{
     font-family: 'Poppins', sans-serif;
     background-image: url(../img/backfirst.jpg);
@@ -10,14 +13,14 @@ body{
     background-color: rgba(0, 0, 0, 0.6);
     padding: 15px;
     border-radius: 15px;
-    width: 20%;
-    margin: 100px auto;
+    width: 30vh;
+    margin: 15% auto;
 }
 fieldset{
     border: 3px solid dodgerblue;
 }
 .login{
-    margin: 47px;
+    margin: 6vh;
     padding: 10px;
     text-align: center;
     background-color: dodgerblue;
@@ -47,15 +50,16 @@ fieldset{
     pointer-events: none;
     transition: .5s;
 }
-.inputUser:focus ~ .labelInput,
-.inputUser:valid ~ .labelInput{
+.labelInput{
     top: -20px;
-    font-size: 10px;
+    font-size: 12px;
     color: dodgerblue;
 }
 .d-none {
     display: none;
     font-size: 12px;
+    color: brown;
+    margin-top: 5px;
 }
 #submit{
     background-image: linear-gradient(to right,rgb(0, 92, 197), rgb(213, 20, 220));
