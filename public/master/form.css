@@ -1,20 +1,22 @@
 *{
-    max-width: 100%;
+    border: 0;
+    margin: 0;
 }
 body{
     font-family: 'Poppins', sans-serif;
     background-image: url(../img/backfirst.jpg);
     background-size: cover;
-    padding: 30px 0;
     background-repeat: no-repeat ;
 }
 .box{
+    text-align: center;
     color: white;
     background-color: rgba(0, 0, 0, 0.6);
-    padding: 15px;
+    padding: 30px 15px;
     border-radius: 15px;
-    width: 30vh;
-    margin: 15% auto;
+    width: 300px;
+    height: 250px;
+    margin: 130px auto;
 }
 fieldset{
     border: 3px solid dodgerblue;
@@ -56,7 +58,7 @@ fieldset{
     color: dodgerblue;
 }
 .d-none {
-    display: none;
+    visibility: hidden;
     font-size: 12px;
     color: brown;
     margin-top: 5px;
