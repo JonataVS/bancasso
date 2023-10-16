@@ -34,6 +34,7 @@
                         <a href="/viewpost" class="nav-link">Postagens</a>
                     </li>
                 </ul>
+                <button class="button" onclick="logout()">Sair</button>
             </div>
         </nav>
     </header>
@@ -256,26 +257,8 @@
         <span id="abre-js">}</span>
         </span>   
         </code>
-    </pre>
-                 <h2>MySQL (Banco de Dados)</h2>
-                 <p>Por trás de páginas bem estilizadas há um back-end em funcionamento, sites ou sistemas privados que contém um Banco de Dados armazenando todos as informações registradas. Todo desenvolvimento que precisa guardar dados precisa de um Banco para guardar informações.</p>
-                 <p>MySQL é a linguagem de programação para o gerenciamento de um Banco de Dados relacional de código aberto, isso significa que permite a criação, manipulação e consulta de Banco de Dados, desenvolvido pela Oracle Corporation e amplamente utlizado  em aplicativos web, como blogs, fóruns, lojas virtuais e outras aplicações que exigem armazenamento e recuperação de dados.</p>
-                 <p>Ele é muito famoso por ser rápido e fácil de ser utilizado, se adequa facilmente a algumas linguagens de programação e pode ser modificado de acordo com suas necessidades.</p>
-                 <p>O <a href="https://sqliteonline.com/">SQL online IDE</a> é um site que oferece uma plataforma para execução de consultas SQL diretamente do navegador, sem precisar instalar nenhuma ferramenta no dispositivo, é possivelmente uma ferramenta que você estudante pode vir a utilizar enquanto estiver estudando Banco de Dados. A seguir tem um guia de como você vai configurar sua plataforma para praticar seu SQL.</p>
-                 <img src="sql.jpg">
-                 <p>Como guardaremos as informações no Banco? Se você já estudou os modelos relacionais e lógicos sabe que temos que criar uma tabela para adicionar as informações, veja como criamos uma tabela no SQL</p>
-    <pre id="sql-tabel">
-        <code id="sql-tabel">
-        <span id="sql-fun">CREATE TABLE</span><span id="sql-info"> alunos </span><span id="sql-sinal">(</span>
-        <span id="sql-fun">ID</span><span id="sql-info"> INTEGER</span><span id="sql-fun"> PRIMARY KEY,</span>
-        <span id="sql-info">nome</span><span id="sql-info"> TEXT</span><span id="sql-fun"> NOT NULL,</span>
-        <span id="sql-info">idade</span><span id="sql-info"> INTEGER</span><span id="sql-fun"> NOT NULL,</span>
-        <span id="sql-info">email</span><span id="sql-info"> TEXT</span><span id="sql-fun"> NOT NULL UNIQUE</span>
-        <span id="sql-sinal">)</span><span id="sql-info">;</span>
-
-
-        </code>
     </pre>            
     <script src="js/main.js"></script>
+    <script src="./front-js/init.js" type="module"></script>
 </body>
 </html>
