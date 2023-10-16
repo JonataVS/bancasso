@@ -8,11 +8,11 @@ async function createNewUser(to) {
         const transporter = nodemailer.createTransport(config);
 
         const info = await transporter.sendMail({
-            from: 'jonata.venancio@academico.ifpb.edu.br',
+            from: 'noreplay@gmail.com',
             to,
             subject: 'Conta criada com sucesso',
             text: 'Conta criada, acesse a página principal, para ter acesso aos seus conteúdos',
-            html: '<h1>Conta criada, acesse a página principal, para ter acesso aos seus conteúdos<h1>'
+            html: '<h1>Sua conta foi criada!<h1><p>Faça login para ter acesso aos conteúdos<p>'
         });
         
         if (process.env.NODE_ENV === 'development') {
@@ -23,7 +23,7 @@ async function createNewUser(to) {
     }
 }
 
-/*async function createNewPost(to) {
+async function createNewPost(to) {
     try {
         const config = await mailConfig();
 
@@ -34,7 +34,7 @@ async function createNewUser(to) {
             to,
             subject: 'Postagem criada com sucesso',
             text: 'Sua postagem foi criada, você pode ter acesso as postagens clicando na aba POSTAGENS',
-            html: '<h1>Postagem criada com sucesso<h1><p>Veja suas postagens na aba de POSTAGENS<p>'
+            html: '<h1>Postagem criada com sucesso!<h1><p>Veja as postagens na aba POSTAGENS<p>'
         });
 
         if (process.env.NODE_ENV === 'development') {
@@ -43,6 +43,6 @@ async function createNewUser(to) {
     } catch (err) {
         throw new Error(err);
     }
-}*/
+}
 
-export default { createNewUser };
+export default { createNewUser, createNewPost };
