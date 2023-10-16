@@ -12,6 +12,8 @@ import Postagem from './models/Postagem.js';
 
 import { validate } from './middleware/validate.js'
 import { isAuthenticated } from './middleware/auth.js';
+import SendMail from './services/SendMail.js';
+
 class HTTPError extends Error {
   constructor(message, code) {
     super(message);
@@ -130,6 +132,8 @@ router.post(
 
     const newPostagem = await Postagem.create(postagem);
 
+    await SendMail.createNewPost(newPostagem.usuario.email);
+
     if (newPostagem) {
       res.json({ newPostagem });
     } else {
@@ -192,6 +196,8 @@ validate(
   usuario.senha = hash;
 
   const newUsuario = await Usuario.create(usuario);
+
+  await SendMail.createNewUser(newUsuario.email);
 
   res.redirect('/entrar');
 });
