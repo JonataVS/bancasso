@@ -8,7 +8,7 @@ async function createNewUser(to) {
         const transporter = nodemailer.createTransport(config);
 
         const info = await transporter.sendMail({
-            from: 'noreplay@gmail.com',
+            from: 'jonata.venancio@academico.ifpb.edu.br',
             to,
             subject: 'Conta criada com sucesso',
             text: 'Conta criada, acesse a página principal, para ter acesso aos seus conteúdos',
@@ -23,7 +23,7 @@ async function createNewUser(to) {
     }
 }
 
-async function createNewPost(to) {
+/*async function createNewPost(to) {
     try {
         const config = await mailConfig();
 
@@ -43,6 +43,6 @@ async function createNewPost(to) {
     } catch (err) {
         throw new Error(err);
     }
-}
+}*/
 
-export default { createNewUser, createNewPost };
+export default { createNewUser };
