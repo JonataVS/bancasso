@@ -14,8 +14,8 @@ async function mailConfig() {
     if (process.env.NODE_ENV === 'development') {
         const testAccount = await nodemailer.createTestAccount();
         config.auth = {
-            user: 'jonata.venancio@academico.ifpb.edu.br',
-            pass: '57prppJ221!'
+            user: testAccount.user,
+            pass: testAccount.pass
         };
     }
     return config;
